@@ -9,10 +9,18 @@ export default function CoinCard(props) {
   useEffect(() => {
     setNumCoinsPurchased(amountPurchased / price);
     setCoinFees({
-      maker: amountPurchased * 0.001,
-      taker: amountPurchased * 0.001,
-      additional: amountPurchased * 0.005,
-      withdrawal: 0.0005,
+      Binance: {
+        maker: amountPurchased * 0.001,
+        taker: amountPurchased * 0.001,
+        additional: amountPurchased * 0.005,
+        withdrawal: 0.0005,
+      },
+      Coinbase: {
+        maker: amountPurchased * 0.004,
+        taker: amountPurchased * 0.006,
+        additional: amountPurchased * 0.005,
+        withdrawal: 0.0005,
+      },
     });
   }, [price]);
 
@@ -24,10 +32,10 @@ export default function CoinCard(props) {
       <div>Fees for $100USD</div>
       <div>{numCoinsPurchased}</div>
       <div>Purchase Fee Total</div>
-      <div>{coinFees.taker + coinFees.additional}</div>
+      {/* <div>{coinFees.taker + coinFees.additional}</div>
       <div>Withdrawal Fee</div>
       <div>{coinFees.withdrawal}</div>
-      <div>Total Fees</div>
+      <div>Total Fees</div> */}
     </div>
   );
 }
